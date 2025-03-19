@@ -17,5 +17,3 @@ can be used to programatically enable and disable workflows with tags, etc.
 - add all n8n endpoints
 - figure out params and best way to present this in the API.
 - handle pagination
-
-## Created by Daniel Ranisavljevic 19/03/2025
