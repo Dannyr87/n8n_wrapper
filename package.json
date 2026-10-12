@@ -1,0 +1,23 @@
+{
+  "name": "n8n-wrapper",
+  "version": "0.1.0",
+  "description": "A small Node.js API wrapper around the n8n HTTP REST API.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "scripts": {
+    "start": "node main.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "license": "GPL-3.0-or-later",
+  "keywords": [
+    "n8n",
+    "api",
+    "wrapper",
+    "rest",
+    "automation"
+  ]
+}
