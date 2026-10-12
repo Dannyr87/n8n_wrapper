@@ -32,9 +32,9 @@ Create an API token in n8n (**User settings → API**). Use the token value as `
 ## Running
 
 ```bash
-node --env-file=.env main.js
-# or
-npm start
+node --env-file=.env main.js     # demo script
+npm start                        # same, via npm
+npm run web                      # web UI + proxy at http://localhost:3000
 ```
 
 ## Usage

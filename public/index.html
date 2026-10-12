@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>n8n Wrapper · Web UI</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>n8n Wrapper</h1>
+    <div class="connection" id="connection">
+      <span class="status" id="status">⚪ not connected</span>
+      <button class="btn ghost" id="configToggle">⚙ Connection</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Connection panel -->
+    <section id="configPanel" class="panel collapsed">
+      <h2>Connection</h2>
+      <label>URL <input type="text" id="cfgUrl" placeholder="http://localhost:5678" /></label>
+      <label>API Key <input type="password" id="cfgApiKey" placeholder="X-N8N-API-KEY" /></label>
+      <label>Timeout (ms) <input type="number" id="cfgTimeout" value="30000" /></label>
+      <label>Retries <input type="number" id="cfgRetries" value="2" /></label>
+      <div class="actions">
+        <button class="btn primary" id="connectBtn">Connect</button>
+        <button class="btn ghost" id="saveCfg">Save</button>
+      </div>
+    </section>
+
+    <div class="layout">
+      <!-- Left: actions -->
+      <section class="panel">
+        <h2>Actions</h2>
+
+        <label>Resource
+          <select id="resource">
+            <option value="api/v1/workflows">workflows</option>
+            <option value="api/v1/executions">executions</option>
+            <option value="api/v1/users">users</option>
+            <option value="api/v1/projects">projects</option>
+            <option value="api/v1/messages">messages</option>
+            <option value="api/v1/workflows/1/versions">workflow versions</option>
+          </select>
+        </label>
+
+        <label>Method
+          <select id="method">
+            <option value="GET">GET</option>
+            <option value="POST">POST</option>
+            <option value="PUT">PUT</option>
+            <option value="DELETE">DELETE</option>
+          </select>
+        </label>
+
+        <label>Endpoint
+          <input type="text" id="endpoint" value="api/v1/workflows" />
+        </label>
+
+        <label>Query params (JSON object)
+          <textarea id="query" class="mono" placeholder='{"limit": 10, "tag": "backup"}'></textarea>
+        </label>
+
+        <label>Body (JSON, for POST/PUT)
+          <textarea id="body" class="mono" placeholder='{"name": "My workflow"}'></textarea>
+        </label>
+
+        <div class="actions">
+          <button class="btn primary" id="sendBtn">Send request</button>
+          <button class="btn ghost" id="clearRes">Clear output</button>
+        </div>
+      </section>
+
+      <!-- Right: output -->
+      <section class="panel">
+        <h2>Response</h2>
+        <div class="meta" id="meta"></div>
+        <pre class="output" id="output">Connect, then send a request. Results appear here.</pre>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <span>Dependency-free · served by <code>src/server.js</code></span>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
